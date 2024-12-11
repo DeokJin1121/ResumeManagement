@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+    <meta charset="UTF-8">
+    <title>이력서 리스트</title>
+    <style>
+        /* 테이블 스타일 */
+        .resume-table {
+            width: 100%;
+            border-collapse: collapse; /* 셀 구분선 설정 */
+            font-size: 14px; /* 글씨 크기 조정 */
+        }
+
+        .resume-table th, .resume-table td {
+            border: 1px solid #ddd; /* 셀 경계선 */
+            padding: 10px; /* 패딩 줄임 */
+            text-align: left;
+        }
+
+        .resume-table th {
+            background-color: #6FAFE7;
+            color: white;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .resume-table th::after {
+            content: '⇅'; /* 정렬 아이콘 */
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+            color: #fff;
+        }
+
+        .resume-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .resume-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* 파일 셀 크기 조정 */
+        .resume-table td:last-child {
+            width: 300px; /* 파일 셀의 너비 증가 */
+            word-break: break-all; /* 긴 텍스트 줄바꿈 */
+        }
+
+        /* 페이지 제목 스타일 */
+        .page-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* 테이블 컨테이너 */
+        .content-box {
+            max-width: 1000px;
+            height: 600px; /* 고정 높이 */
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .table-container {
+            height: 100%;
+            overflow-y: auto; /* 세로 스크롤 */
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content" class="content">
+    <div class="page-title">이력서 리스트</div>
+    <div class="content-box">
+        <div class="table-container">
+            <table class="resume-table">
+                <thead>
+                <tr>
+                    <th style="width: 15%;">제목</th>
+                    <th style="width: 15%;">글쓴이</th>
+                    <th style="width: 15%;">카테고리</th>
+                    <th style="width: 20%;">내용</th>
+                    <th style="width: 35%;">파일 경로</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="resume : ${resumes}">
+                    <td th:text="${resume.title}">Sample Title</td>
+                    <td th:text="${resume.author}">Sample Author</td>
+                    <td th:text="${resume.category}">Sample Category</td>
+                    <td th:text="${resume.memo}">Sample Memo</td>
+                    <td th:text="${resume.fileUrl}">Sample File Path</td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(resumes)}">
+                    <td colspan="5" style="text-align: center;">등록된 이력서가 없습니다.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

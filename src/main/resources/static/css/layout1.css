@@ -1,0 +1,192 @@
+/* 전체 배경 설정 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #89CFF0, #FFDEE9); /* 핑크-블루 그라데이션 */
+    background-size: cover;
+    z-index: -1; /* 배경을 맨 뒤로 보냄 */
+}
+
+/* 헤더 네비게이션 스타일 */
+.navbar {
+    background-color: transparent !important; /* 배경 투명 */
+    box-shadow: none !important; /* 그림자 제거 */
+    position: relative;
+    z-index: 2; /* 헤더가 배경보다 앞으로 보이도록 설정 */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* 메뉴바 밑 선 추가 */
+}
+
+/* 헤더 링크 스타일 */
+.navbar-brand {
+    color: #1E90FF !important; /* CVify 하늘색 */
+    font-weight: bold;
+}
+
+.nav-link {
+    color: black !important; /* 검정색 */
+    font-size: 18px; /* 메뉴 글씨 크기 */
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #1E90FF !important; /* 하늘색 강조 */
+}
+
+/* 로그인 제목 */
+.login-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 150px;
+    color: black;
+}
+
+/* 로그인 하얀 직사각형 박스 */
+.login-box {
+    background: white;
+    border-radius: 10px; /* 약간의 둥근 모서리 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 */
+    padding: 30px;
+    margin: 0 auto; /* 중앙 정렬 */
+    max-width: 500px; /* 로그인 박스 크기 */
+    text-align: center;
+    position: relative;
+}
+
+/* 마이페이지, 이력서 관리, 이력서 리스트 하얀 직사각형 박스 */
+.content-box {
+    background: white;
+    border-radius: 15px; /* 더 둥근 모서리 */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* 그림자 */
+    padding: 50px;
+    margin: 40px auto; /* 중앙 정렬 */
+    max-width: 1000px; /* 더 큰 박스 크기 */
+    text-align: center;
+    position: relative;
+}
+
+/* 프로필 컨테이너 */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* 프로필 이미지 스타일 */
+.profile-image-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 회원 정보 스타일 */
+.member-info {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.member-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* 파일 업로드 버튼 */
+.btn-upload {
+    background-color: #6FAFE7;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-upload:hover {
+    background-color: #5F9ED1;
+}
+
+/* 폼 요소 스타일 */
+.form-group {
+    margin-bottom: 25px; /* 간격 추가 */
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px; /* 간격 추가 */
+}
+
+.form-control {
+    border-radius: 5px; /* 살짝 날카로운 모서리 */
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* 버튼 스타일 공통 */
+.btn {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 로그인 버튼 */
+.btn-login {
+    background-color: #6FAFE7; /* 연한 파란색 */
+    color: #333333;
+    margin-bottom: 10px; /* 간격 유지 */
+    width: 100%;
+    padding: 5px 12px; /* 세로 크기 증가 (기존 세로 padding 12px → 16px) */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 포커스 시 검정 테두리 제거 */
+    border-radius: 5px; /* 둥근 모서리 */
+    font-size: 18px; /* 글씨 크기 증가 */
+}
+
+.btn-login:hover {
+    background-color: #5F9ED1; /* hover 색상 */
+}
+
+/* 회원가입 버튼 */
+.btn-signup {
+    background-color: #A5CFEA; /* 더 연한 파란색 */
+    color: #333333;
+    margin-bottom: 10px; /* 간격 유지 */
+    width: 100%;
+    padding: 5px 12px; /* 세로 크기 증가 (기존 세로 padding 12px → 16px) */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 포커스 시 검정 테두리 제거 */
+    border-radius: 5px; /* 둥근 모서리 */
+    font-size: 18px; /* 글씨 크기 증가 */
+}
+
+.btn-signup:hover {
+    background-color: #95C1E3; /* hover 색상 */
+}
+
+
+.btn-signup:hover {
+    background-color: #95C1E3; /* hover 색상 */
+}
